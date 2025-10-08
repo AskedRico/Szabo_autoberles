@@ -366,4 +366,53 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 })();
+/* validalas */
 
+function validalas(){
+    const betu = 'QWERTYUIOPASDFGHJKLZXCVBNM ';
+    let nev = document.getElementById("fullName").value;
+    let email = document.getElementById("email").value;
+    let telefon = document.getElementById("phone").value;
+    let szuldatum = document.getElementById("birthDate").value;
+    let agree = document.getElementById("consent").value;
+    let napok = document.getElementById("rentalSummary").value;
+    let nevok = false;
+    let emailok = false;
+    let telefonok = false;
+    let korok = false;
+    let agreed = false;
+
+
+    /* nev */
+    let nagybetu = false
+    let nospec = false;
+    for (let i = 0; i < nev.length; i++) {
+        if(betu.includes(nev[i])){
+            nagybetu = true;
+        }
+        else if(betu.toLowerCase().includes(nev[i])){
+            nospec = true;
+        }
+        else{
+            nospec = false;
+        }
+        
+    }
+    if(nospec && nagybetu){
+        nevok = true;
+    }
+    if(!nevok){
+        alert("Hibásan adta meg a nevét! A helyes megadás: Szabó Bertalan");
+    }
+    /* email */
+    if(email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
+        emailok = true;
+    }
+    else{
+        alert("Helytelen email. A helyes formátum: autoberles.szabo@gmail.com");
+    }
+
+    
+    
+
+}
